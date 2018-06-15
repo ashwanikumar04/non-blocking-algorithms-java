@@ -1,19 +1,13 @@
-package in.ashwanik.counter;
+package in.ashwanik;
 
 import java.util.concurrent.ThreadLocalRandom;
+
+import static in.ashwanik.Helpers.sleep;
 
 /**
  * Created by Ashwani Kumar on 14/06/18.
  */
 public class BlockingCounterTest {
-
-    private static void sleep(int time) {
-        try {
-            Thread.sleep(time);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -53,7 +47,6 @@ public class BlockingCounterTest {
         public synchronized int increment() {
             return ++value;
         }
-
     }
 
 

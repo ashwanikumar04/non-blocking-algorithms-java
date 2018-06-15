@@ -1,20 +1,14 @@
-package in.ashwanik.counter;
+package in.ashwanik;
 
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import static in.ashwanik.Helpers.sleep;
 
 /**
  * Created by Ashwani Kumar on 14/06/18.
  */
 public class NonBlockingCounterTest {
-
-    private static void sleep(int time) {
-        try {
-            Thread.sleep(time);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -41,11 +35,14 @@ public class NonBlockingCounterTest {
         thread2.start();
         thread1.join();
         thread2.join();
-
     }
 
     static class NonBlockingCounter {
         private AtomicInteger value;
+
+        public NonBlockingCounter() {
+            value = new AtomicInteger(0);
+        }
 
         public synchronized int getValue() {
             return value.intValue();
