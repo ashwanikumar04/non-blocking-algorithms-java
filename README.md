@@ -1,2 +1,2 @@
 # non-blocking-algorithms-java
-Java non-blocking algorithms
+Some non-blocking algorithms in java
